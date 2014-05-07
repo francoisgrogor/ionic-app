@@ -1,0 +1,168 @@
+angular.module('ionicApp', ['ionic'])
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+    .state('search', {
+      url: '/search',
+      templateUrl: 'search.html'
+    })
+    .state('settings', {
+      url: '/settings',
+      templateUrl: 'settings.html'
+    })
+    .state('tabs', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "tabs.html"
+    })
+    .state('tabs.home', {
+      url: "/home",
+      views: {
+        'home-tab': {
+          templateUrl: "home.html",
+          controller: 'HomeTabCtrl'
+        }
+      }
+    })
+    .state('tabs.facts', {
+      url: "/facts",
+      views: {
+        'home-tab': {
+          templateUrl: "facts.html"
+        }
+      }
+    })
+    .state('tabs.facts2', {
+      url: "/facts2",
+      views: {
+        'home-tab': {
+          templateUrl: "facts2.html"
+        }
+      }
+    })
+    .state('tabs.about', {
+      url: "/about",
+      views: {
+        'about-tab': {
+          templateUrl: "about.html"
+        }
+      }
+    })
+    .state('tabs.navstack', {
+      url: "/navstack",
+      views: {
+        'about-tab': {
+          templateUrl: "nav-stack.html"
+        }
+      }
+    })
+    .state('tabs.contact', {
+      url: "/contact",
+      views: {
+        'contact-tab': {
+          templateUrl: "contact.html"
+        }
+      }
+    });
+
+
+   $urlRouterProvider.otherwise("/tab/home");
+
+})
+.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
+  $scope.showMenu = function () {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+  $scope.showRightMenu = function () {
+    $ionicSideMenuDelegate.toggleRight();
+  };
+})
+.controller('HomeTabCtrl', function($scope) {
+});
+
+
+
+var catalogueApp = angular.module('CatalogueApp', ['ngRoute']);
+
+//configure our routes
+catalogueApp.config(function($routeProvider) {
+	$routeProvider
+		// route for the home page
+		.when('/', {
+			templateUrl : 'pages/home.html',
+			controller  : 'mainController'
+		})
+		
+		.when('/home', {
+			templateUrl : 'pages/home.html',
+			controller  : 'mainController'
+		})
+
+		// route for the about page
+		.when('/shop, {
+			templateUrl : 'pages/catalogue.html',
+			controller  : 'catalogueController'
+		})
+
+		// route for the contact page
+		.when('/scan', {
+			templateUrl : 'pages/scan.html',
+			controller  : 'catalogueController'
+		})
+	
+		// route for the about page
+		.when('/cart, {
+			templateUrl : 'pages/cart.html',
+			controller  : 'cartController'
+		})
+		
+		// route for the about page
+		.when('/profile, {
+			templateUrl : 'pages/profile.html',
+			controller  : 'profileController'
+		});
+	
+	
+});
+
+//create the controller and inject Angular's $scope
+catalogueApp.controller('mainController', function($scope) {
+	// create a message to display in our view
+	$scope.message = 'Home Tab.';
+});
+
+catalogueApp.controller('catalogueController', function($scope) {
+	$scope.message = 'Catalogue Tab.';
+});
+
+catalogueApp.controller('scanController', function($scope) {
+	$scope.message = 'Scan Tab.';
+});
+
+catalogueApp.controller('cartController', function($scope) {
+	$scope.message = 'Cart Tab.';
+});
+
+catalogueApp.controller('profileController', function($scope) {
+	$scope.message = 'Profile Tab.';
+});
+
+////This will be dynamic data
+//.controller('CatelogueCtrl', function($scope) {
+//	  $scope.categories = [
+//	    { name: 'Groceries' },
+//	    { name: 'Household Cleaning' },
+//	    { name: 'Baby' },
+//	    { name: 'Health and Beauty' },
+//	    { name: 'Home and Garden' },
+//	    { name: 'Pet Shop' },
+//	    { name: 'Sports and Leisure' },
+//	    { name: 'Stationery' },
+//	    { name: 'Technology' },
+//	    { name: 'Toys' },
+//	    { name: 'Wine and liquor' },
+//	    { name: 'Mothers Day' },
+//	  ];
+//	});
+

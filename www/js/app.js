@@ -1,83 +1,130 @@
-var catApp = angular.module('CatApp', ['ngRoute']);
+angular.module('CatalogueApp', ['ionic'])
 
-//configure our routes
-catApp.config(function($routeProvider) {
-	$routeProvider
-		// route for the home page
-		.when('/', {
-			templateUrl : 'pages/home.html',
-			controller  : 'mainController'
-		})
-		
-		.when('/home', {
-			templateUrl : 'pages/home.html',
-			controller  : 'mainController'
-		})
+.config(function($stateProvider, $urlRouterProvider) {
 
-		// route for the about page
-		.when('/shop, {
-			templateUrl : 'pages/catalogue.html',
-			controller  : 'catalogueController'
-		})
+  $stateProvider
+    .state('search', {
+      url: '/search',
+      templateUrl: 'search.html'
+    })
+    .state('settings', {
+      url: '/settings',
+      templateUrl: 'settings.html'
+    })
+    .state('tabs', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "tabs.html"
+    })
+    .state('tabs.home', {
+      url: "/home",
+      views: {
+        'home-tab': {
+          templateUrl: "home.html",
+          controller: 'HomeTabCtrl'
+        }
+      }
+    })
+    .state('tabs.scan', {
+      url: "/scan",
+      views: {
+        'scan-tab': {
+          templateUrl: "scan.html",
+          controller: 'ScanTabCtrl'
+        }
+      }
+    })
+    .state('tabs.shop', {
+      url: "/shop",
+      views: {
+        'shop-tab': {
+          templateUrl: "shop.html",
+          controller: 'ShopTabCtrl'
+        }
+      }
+    })
+    .state('tabs.cart', {
+      url: "/cart",
+      views: {
+        'cart-tab': {
+          templateUrl: "cart.html",
+          controller: 'CartTabCtrl'
+        }
+      }
+    })
+    .state('tabs.profile', {
+      url: "/profile",
+      views: {
+        'profile-tab': {
+          templateUrl: "profile.html",
+          controller: 'ProfileTabCtrl'
+        }
+      }
+    })
+    .state('tabs.facts', {
+      url: "/facts",
+      views: {
+        'home-tab': {
+          templateUrl: "facts.html"
+        }
+      }
+    })
+    .state('tabs.facts2', {
+      url: "/facts2",
+      views: {
+        'home-tab': {
+          templateUrl: "facts2.html"
+        }
+      }
+    })
+    .state('tabs.about', {
+      url: "/about",
+      views: {
+        'about-tab': {
+          templateUrl: "about.html"
+        }
+      }
+    })
+    .state('tabs.navstack', {
+      url: "/navstack",
+      views: {
+        'about-tab': {
+          templateUrl: "nav-stack.html"
+        }
+      }
+    })
+    .state('tabs.contact', {
+      url: "/contact",
+      views: {
+        'contact-tab': {
+          templateUrl: "contact.html"
+        }
+      }
+    });
 
-		// route for the contact page
-		.when('/scan', {
-			templateUrl : 'pages/scan.html',
-			controller  : 'catalogueController'
-		})
-	
-		// route for the about page
-		.when('/cart, {
-			templateUrl : 'pages/cart.html',
-			controller  : 'cartController'
-		})
-		
-		// route for the about page
-		.when('/profile, {
-			templateUrl : 'pages/profile.html',
-			controller  : 'profileController'
-		});
-	
-	
-});
 
-//create the controller and inject Angular's $scope
-catApp.controller('mainController', function($scope) {
-	// create a message to display in our view
-	$scope.message = 'Home Tab.';
-});
+   $urlRouterProvider.otherwise("/tab/home");
 
-catApp.controller('catalogueController', function($scope) {
-	$scope.message = 'Catalogue Tab.';
-});
+})
+.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
+  $scope.showMenu = function () {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+  $scope.showRightMenu = function () {
+    $ionicSideMenuDelegate.toggleRight();
+  };
+})
+.controller('HomeTabCtrl', function($scope) {
+})
 
-catApp.controller('scanController', function($scope) {
-	$scope.message = 'Scan Tab.';
-});
+.controller('ScanTabCtrl', function($scope) {
+})
 
-catApp.controller('cartController', function($scope) {
-	$scope.message = 'Cart Tab.';
-});
+.controller('ShopTabCtrl', function($scope) {
+})
 
-catApp.controller('profileController', function($scope) {
-	$scope.message = 'Profile Tab.';
-});
+.controller('CartTabCtrl', function($scope) {
+})
 
-////This will be dynamic data
-//.controller('CatelogueCtrl', function($scope) {
-//	  $scope.categories = [
-//	    { name: 'Groceries' },
-//	    { name: 'Household Cleaning' },
-//	    { name: 'Baby' },
-//	    { name: 'Health and Beauty' },
-//	    { name: 'Home and Garden' },
-//	    { name: 'Pet Shop' },
-//	    { name: 'Sports and Leisure' },
-//	    { name: 'Stationery' },
-//	    { name: 'Technology' },
-//	    { name: 'Toys' },
-//	    { name: 'Wine and liquor' },
-//	    { name: 'Mothers Day' },
-//	  ];
-//	});
-
+.controller('ProfileTabCtrl', function($scope) {
+})
