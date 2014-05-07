@@ -21,8 +21,7 @@
 	</head>
 
   <body>
-    
-    
+
     <ion-side-menus>
         
         <ion-side-menu-content ng-controller="NavCtrl">
@@ -52,31 +51,24 @@
                 <a class="item" menu-close nav-clear href="#/tab/home">Home</a>
               </li>
               <li>
-                <a class="item" menu-close href="#/tab/facts">Facts</a>
+                <a class="item" menu-close href="#/tab/scan">Scan</a>
               </li>
               <li>
-                <a class="item" menu-close href="#/tab/facts2">More Facts</a>
+                <a class="item" menu-close href="#/tab/search">Search</a>
+              </li>
+              <li>
+                <a class="item" menu-close href="#/tab/shoppinglist">Shopping List</a>
+              </li>
+              <li>
+                <a class="item" menu-close href="#/tab/about">About IntelliShop</a>
+              </li>
+              <li>
+                <a class="item" menu-close href="#/tab/help">Help</a>
               </li>
             </ul>
           </ion-content>
         </ion-side-menu>
       
-        <ion-side-menu side="right">
-          <ion-header-bar class="bar bar-header bar-dark">
-            <h1 class="title">Right Menu</h1>
-          </ion-header-bar>
-          <ion-content>
-            <ul class="list">
-              <li>
-                <a class="item" menu-close nav-clear href="#/search">Search</a>
-              </li>
-              <li>
-                <a class="item" menu-close nav-clear href="#/settings">Settings</a>
-              </li>
-            </ul>
-          </ion-content>
-        </ion-side-menu>
-        
       </ion-side-menus>
 
     <script id="tabs.html" type="text/ng-template">
@@ -145,37 +137,34 @@
       </ion-view>
     </script>
 
-    <script id="facts.html" type="text/ng-template">
-      
-      <ion-view title="Facts">
+    <script id="search.html" type="text/ng-template">
+      <ion-view title="Search for Items">
         <ion-content>
-          <p>Banging your head against a wall uses 150 calories an hour.</p>
-          <p>Dogs have four toes on their hind feet, and five on their front feet.</p>
-          <p>The ant can lift 50 times its own weight, can pull 30 times its own weight and always falls over on its right side when intoxicated.</p>
-          <p>A cockroach will live nine days without it's head, before it starves to death.</p>
-          <p>Polar bears are left handed.</p>
-          <p>
-            <a class="button icon ion-home" href="#/tab/home"> Home</a>
-            <a class="button icon icon-right ion-chevron-right" href="#/tab/facts2">More Facts</a>
-          </p>
-            
+			<p>Search for Items</p>
         </ion-content>
       </ion-view>
     </script>
-
-    <script id="facts2.html" type="text/ng-template">
-      <ion-view title="Also Factual">
+    
+    <script id="shoppinglist.html" type="text/ng-template">
+      <ion-view title="Shopping List">
         <ion-content>
-          <p>111,111,111 x 111,111,111 = 12,345,678,987,654,321</p>
-          <p>1 in every 4 Americans has appeared on T.V.</p>
-          <p>11% of the world is left-handed.</p>
-          <p>1 in 8 Americans has worked at a McDonalds restaurant.</p>
-          <p>$283,200 is the absolute highest amount of money you can win on Jeopardy.</p>
-          <p>101 Dalmatians, Peter Pan, Lady and the Tramp, and Mulan are the only Disney cartoons where both parents are present and don't die throughout the movie.</p>
-          <p>
-            <a class="button icon ion-home" href="#/tab/home"> Home</a>
-            <a class="button icon ion-chevron-left" href="#/tab/facts"> Scientific Facts</a>
-          </p>
+			<p>Create/edit shopping list</p>
+        </ion-content>
+      </ion-view>
+    </script>
+      
+    <script id="about.html" type="text/ng-template">
+      <ion-view title="About">
+        <ion-content>
+			<p>About IntelliShop</p>
+        </ion-content>
+      </ion-view>
+    </script>
+    
+    <script id="help.html" type="text/ng-template">
+      <ion-view title="Help">
+        <ion-content>
+			<p>Help with using IntelliShop</p>
         </ion-content>
       </ion-view>
     </script>

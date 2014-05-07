@@ -61,19 +61,19 @@ angular.module('CatalogueApp', ['ionic'])
         }
       }
     })
-    .state('tabs.facts', {
-      url: "/facts",
+    .state('tabs.search', {
+      url: "/search",
       views: {
-        'home-tab': {
-          templateUrl: "facts.html"
+        'search-tab': {
+          templateUrl: "search.html"
         }
       }
     })
-    .state('tabs.facts2', {
-      url: "/facts2",
+    .state('tabs.shoppinglist', {
+      url: "/shoppinglist",
       views: {
-        'home-tab': {
-          templateUrl: "facts2.html"
+        'shoppinglist-tab': {
+          templateUrl: "shoppinglist.html"
         }
       }
     })
@@ -85,10 +85,18 @@ angular.module('CatalogueApp', ['ionic'])
         }
       }
     })
+    .state('tabs.help', {
+      url: "/help",
+      views: {
+        'help-tab': {
+          templateUrl: "help.html"
+        }
+      }
+    })
     .state('tabs.navstack', {
       url: "/navstack",
       views: {
-        'about-tab': {
+        'navstack-tab': {
           templateUrl: "nav-stack.html"
         }
       }
