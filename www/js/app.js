@@ -1,6 +1,6 @@
-angular.module('CatalogueApp', ['ionic'])
+catalogueApp = angular.module('CatalogueApp', ['ionic'])
 
-.config(function($stateProvider, $urlRouterProvider) {
+catalogueApp.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('search', {
@@ -113,13 +113,12 @@ angular.module('CatalogueApp', ['ionic'])
 
    $urlRouterProvider.otherwise("/tab/home");
 
-})
-.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
+});
+
+
+catalogueApp.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
   $scope.showMenu = function () {
     $ionicSideMenuDelegate.toggleLeft();
-  };
-  $scope.showRightMenu = function () {
-    $ionicSideMenuDelegate.toggleRight();
   };
 })
 .controller('HomeTabCtrl', function($scope) {
@@ -135,4 +134,4 @@ angular.module('CatalogueApp', ['ionic'])
 })
 
 .controller('ProfileTabCtrl', function($scope) {
-})
+});
